@@ -33,6 +33,7 @@ class CategoryList(ListView):
         context['category'] = category
         return context
 
+
 # def home(request, page=1):
 #     articles_list = Article.objects.published()
 #     paginator = Paginator(articles_list, 3)
