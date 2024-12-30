@@ -18,3 +18,9 @@ body{
   left: 0;
   
 }
+
+.errors{
+  color: red;
+  background-color: rgb(236, 144, 201);
+  padding: 20px 30px;
+}
