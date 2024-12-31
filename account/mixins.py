@@ -10,7 +10,7 @@ class FieldsMixin():
         else:
             raise Http404("You can not see this page")
         return super().dispatch(request, *args, **kwargs)
-  
+
 
 class FormValidMixin():
     def form_valid(self, form):
