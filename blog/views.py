@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse, Http404
 from .models import Article, Category
 from django.core.paginator import Paginator
 from django.views.generic import ListView, DetailView
-from django.contrib.auth.models import User
+from account.models import User
 
 
 class ArticleList(ListView):
