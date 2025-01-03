@@ -37,7 +37,9 @@ class Category(models.Model):
 class Article(models.Model):
     STATUS_CHOICES = (
         ('d', 'پیش نویس'),
-        ('p', 'منتشرشده')
+        ('p', 'منتشرشده'),
+        ('i', 'درحال بررسی'),
+        ('b', 'برگشت داده شده')
     )
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name="نویسنده")
     title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
