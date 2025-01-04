@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -53,3 +54,12 @@ class Profile(LoginRequiredMixin, UpdateView):
             {'user': self.request.user}
         )
         return kwargs
+
+
+class Login(LoginView):
+    def get_success_url(self):
+        user = self.request.user
+        if user.is_superuser or user.is_author:
+            return reverse_lazy("account:home")
+        else:
+            return reverse_lazy("account:profile")
