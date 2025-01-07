@@ -26,6 +26,7 @@ urlpatterns = [
     path('register/', Register.as_view(), name='register'),
     path('activate/<uidb64>/<token>/', activate, name='activate'),
     path("", include('django.contrib.auth.urls')),
+    path('comment/', include('comment.urls')),
 ]
 
 from django.conf import settings

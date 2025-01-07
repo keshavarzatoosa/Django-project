@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load comment_tags %}
 {% block title %}{{object.title}}{% endblock %}
 {% block main %}
 <header class="masthead" style="background-image: url('{{object.thumbnail.url}}')">
@@ -29,6 +30,8 @@
                     {{object.description|safe}}
                 {% endif %}
                 <!-- {{object.description|linebreaks}} -->
+                {% render_comments object request %}
+                {% include_bootstrap %}
             </div>
         </div>
     </div>
