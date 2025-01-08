@@ -123,6 +123,14 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'fa-ir'
 TIME_ZONE = 'Asia/Tehran'
 # TIME_ZONE = 'UTC'
+LANGUAGES = [
+    ('fa', 'Persian'),
+    ('en', 'English')
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale'
+]
 
 USE_I18N = True
 

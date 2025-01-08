@@ -6,12 +6,13 @@ from extensions.utils import jalali_converter
 from django.urls import reverse
 from django.contrib.contenttypes.fields import GenericRelation
 from comment.models import Comment
+from django.utils.translation import pgettext_lazy as _
 
 
 class ArticleManager(models.Manager):
     def published(self):
         return self.filter(status="p")
-   
+
 
 class CategoryManager(models.Manager):
     def active(self):
@@ -19,15 +20,15 @@ class CategoryManager(models.Manager):
 
 
 class Category(models.Model):
-    parent = models.ForeignKey('self', default=None, null=True, blank=True, on_delete=models.SET_NULL, related_name="children", verbose_name="زیر دسته")
-    title = models.CharField(max_length=200, verbose_name="عنوان دسته بندی")
-    slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس دسته بندی")
-    status = models.BooleanField(default=True, verbose_name="آیا نمایش داده شود؟")
-    position = models.IntegerField(verbose_name="پوزیشن")
+    parent = models.ForeignKey('self', default=None, null=True, blank=True, on_delete=models.SET_NULL, related_name="children", verbose_name=_("Category field", "Parent"))
+    title = models.CharField(max_length=200, verbose_name=_("Category field", "Title"))
+    slug = models.SlugField(max_length=100, unique=True, verbose_name=_("Category field", "Slug"))
+    status = models.BooleanField(default=True, verbose_name=_("Category field", "Status"))
+    position = models.IntegerField(verbose_name=_("Category field", "Position"))
 
     class Meta:
-        verbose_name = "دسته بندی"
-        verbose_name_plural = "دسته بندی ها"
+        verbose_name = _("Category model", "Category")
+        verbose_name_plural = _("Category model", "Categories")
         ordering = ['parent__id', 'position']
 
     def __str__(self):
@@ -37,27 +38,28 @@ class Category(models.Model):
 
 class Article(models.Model):
     STATUS_CHOICES = (
-        ('d', 'پیش نویس'),
-        ('p', 'منتشرشده'),
-        ('i', 'درحال بررسی'),
-        ('b', 'برگشت داده شده')
+        ('d', _('Article status', 'Draf')),
+        ('p', _('Article status', 'Publish')),
+        ('i', _('Article status', 'Identify')),
+        ('b', _('Article status', 'Back'))
     )
-    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name="نویسنده")
-    title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
-    slug = models.SlugField(max_length=100, unique=True, verbose_name="اسلاگ مقاله")
-    category = models.ManyToManyField(Category, verbose_name="دسته بندی", related_name="articles")
-    description = models.TextField(verbose_name="توضیحات")
-    thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر")
-    publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
+
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name=_("Article field", "Author"))
+    title = models.CharField(max_length=200, verbose_name=_("Article field", "Title"))
+    slug = models.SlugField(max_length=100, unique=True, verbose_name=_("Article field", "Slug"))
+    category = models.ManyToManyField(Category, verbose_name=_("Article field", "Category"), related_name="articles")
+    description = models.TextField(verbose_name=_("Article field", "Description"))
+    thumbnail = models.ImageField(upload_to="images", verbose_name=_("Article field", "Thumbnail"))
+    publish = models.DateTimeField(default=timezone.now, verbose_name=_("Article field", "Publish"))
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
-    is_special = models.BooleanField(default=False, verbose_name="مقاله ویژه")
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name="وضعیت")
+    is_special = models.BooleanField(default=False, verbose_name=_("Article field", "Is Special"))
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name=_("Article field", "Status"))
     comments = GenericRelation(Comment)
 
     class Meta:
-        verbose_name = "مقاله"
-        verbose_name_plural = "مقالات"
+        verbose_name = _("Article model", "article")
+        verbose_name_plural = _("Article model", "articles")
 
     def __str__(self):
         return self.title
@@ -68,18 +70,17 @@ class Article(models.Model):
     def jpublish(self):
         return jalali_converter(self.publish)
     
-    jpublish.short_description = "زمان انتشار"
-
+    jpublish.short_description = _('Article method', 'Jpublish')
     
     def thumbnail_tag(self):
         return format_html(f"<img width=70 src={self.thumbnail.url}>")
     
-    thumbnail_tag.short_description = "عکس مقاله"
+    thumbnail_tag.short_description = _('Article method', 'ThumbnailTag')
 
     def category_to_str(self):
         return ",".join([category.title for category in self.category.active()])
     
-    category_to_str.short_description = "دسته بندی"
+    category_to_str.short_description = _('Article method', 'CategoryToStr')
 
     objects = ArticleManager()
 
