@@ -320,7 +320,7 @@ msgstr ""
 #: .\comment\templates\comment\comments\create_comment.html:20
 #: .\comment\templates\comment\notifications\notification.txt:6
 msgid "Comment"
-msgstr ""
+msgstr "نظرات"
 
 #: .\comment\templates\comment\anonymous\confirmation_request.txt:12
 msgid "Otherwise click on the link below to confirm the comment"
@@ -358,7 +358,7 @@ msgstr ""
 #: .\comment\templates\comment\follow\follow_modal.html:8
 #: .\templates\admin\submit_line.html:10
 msgid "Close"
-msgstr ""
+msgstr "انصراف"
 
 #: .\comment\templates\comment\block\block_icon.html:4
 msgid "Unblock user"
@@ -382,15 +382,15 @@ msgstr ""
 
 #: .\comment\templates\comment\comments\base.html:8
 msgid "Comments"
-msgstr ""
+msgstr "نظرات"
 
 #: .\comment\templates\comment\comments\base.html:17
 msgid "comment on this post..."
-msgstr ""
+msgstr "دیدگاه خود را بنویسید"
 
 #: .\comment\templates\comment\comments\base.html:21
 msgid "reply to this comment..."
-msgstr ""
+msgstr "پاسخ به این دیدگاه"
 
 #: .\comment\templates\comment\comments\comment_content.html:18
 #, python-format
@@ -403,7 +403,7 @@ msgstr ""
 
 #: .\comment\templates\comment\comments\comment_content.html:23
 msgid "Edited"
-msgstr ""
+msgstr "ویرایش شده"
 
 #: .\comment\templates\comment\comments\comment_content.html:23
 #, python-format
@@ -412,7 +412,7 @@ msgstr ""
 
 #: .\comment\templates\comment\comments\comment_content.html:25
 msgid "Posted"
-msgstr ""
+msgstr "پست شده"
 
 #: .\comment\templates\comment\comments\comment_content.html:25
 #, python-format
@@ -422,31 +422,31 @@ msgstr ""
 #: .\comment\templates\comment\comments\comment_content.html:47
 msgid " Reply"
 msgid_plural " Replies"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "پاسخ"
+msgstr[1] "پاسخ"
 
 #: .\comment\templates\comment\comments\comment_modal.html:6
 msgid "Confirm comment deletion"
-msgstr ""
+msgstr "تایید حذف دیدگاه"
 
 #: .\comment\templates\comment\comments\comment_modal.html:12
 msgid "Are you sure you want to delete this comment"
-msgstr ""
+msgstr "آیا می خواهید این دیدگاه را حذف کنید؟"
 
 #: .\comment\templates\comment\comments\comment_modal.html:22
 #: .\templates\admin\delete_confirmation.html:18
 #: .\templates\admin\submit_line.html:14
 #: .\venv\Lib\site-packages\django\forms\formsets.py:499
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: .\comment\templates\comment\comments\content.html:9
 msgid "read more"
-msgstr ""
+msgstr "ادامه"
 
 #: .\comment\templates\comment\comments\create_comment.html:20
 msgid "Reply"
-msgstr "اجرا"
+msgstr "پاسخ"
 
 #: .\comment\templates\comment\comments\create_comment.html:31
 msgid "Comment Anonymously or"
@@ -463,7 +463,7 @@ msgstr ""
 
 #: .\comment\templates\comment\comments\create_comment.html:42
 msgid "to join the discussion"
-msgstr ""
+msgstr "ارسال دیدگاه"
 
 #: .\comment\templates\comment\comments\delete_icon.html:3
 msgid "Delete comment"
@@ -487,11 +487,11 @@ msgstr ""
 
 #: .\comment\templates\comment\comments\pagination.html:5
 msgid "Next"
-msgstr ""
+msgstr "بعدی"
 
 #: .\comment\templates\comment\comments\pagination.html:6
 msgid "Previous"
-msgstr ""
+msgstr "قبلی"
 
 #: .\comment\templates\comment\comments\reject_icon.html:3
 msgid "Flag rejected"
@@ -519,7 +519,7 @@ msgstr ""
 
 #: .\comment\templates\comment\flags\flag_icon.html:3
 msgid "Report comment"
-msgstr ""
+msgstr "گزارش دیدگاه"
 
 #: .\comment\templates\comment\flags\flag_modal.html:7
 msgid "Please select a reason for flagging"
