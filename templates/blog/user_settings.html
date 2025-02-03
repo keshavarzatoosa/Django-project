@@ -1,0 +1,14 @@
+{% load i18n %}
+<title>{% trans "Settings Page" %}</title>
+<form action="{% url 'set_language' %}" method="post">
+    <h2>{% trans "Select Language"%}</h2>
+    {% csrf_token %}
+    <select name="language" onchange="this.form.submit();">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% for lang in LANGUAGES %}
+        <option value="{{lang.0}}" {% if lang.0 == LANGUAGE_CODE %} selected{% endif %}>{{lang.1}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">تغییر زبان</button>
+</form>

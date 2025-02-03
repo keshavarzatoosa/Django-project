@@ -56,6 +56,9 @@ class AuthorList(ListView):
         context['author'] = author
         return context
 
+    
+def user_settings(request):
+    return render(request, "blog/user_settings.html")
 
 # def home(request, page=1):
 #     articles_list = Article.objects.published()
